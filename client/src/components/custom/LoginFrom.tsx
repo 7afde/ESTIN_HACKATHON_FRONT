@@ -39,47 +39,23 @@ const LoginForm = () => {
   //   }
   };
   return (
-    <form className="flex flex-col space-y-4 py-4 w-full  items-center justify-center text-white bg-gradient-to-b from-black to-zinc-700">
-      <h1 className="sm:text-3xl text-lg font-bold">Login </h1>
-      {error && (
-        <div className=" text-centee bg-red-500 py-3 px-2 rounded-sm w-full text-white">
-          {error}
-        </div>
-      )}
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          className="text-black"
-          id="email"
-          // value={loginData.email}
-          onChange={handleInputChange}
-          placeholder="ex: ryangosling@gmail.com"
-        />
-      </div>
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="password">Password</Label>
-        <Input
-          className="text-black"
-          id="password"
-          type="password"
-          placeholder="ex: password1234"
-          // value={loginData.password}
-          onChange={handleInputChange}
-        />
-      </div>
-      {isLoading === true ? (
-        <RiseLoader color="#ffffff" size={10} />
-      ) : (
-        <Button
-          type="submit"
-          onClick={handleLoginSubmit}
-          className="bg-zinc-500 text-white py-2 px-4 rounded-md hover:bg-zinc-700 transition duration-300 mb-5"
-        >
-          Login
-        </Button>
-      )}
-    </form>
-  );
+		<div>
+			<h1 className="text-4xl mb-5">Login</h1>
+			<form onSubmit={handleOnSubmit} className="flex flex-col gap-6 items-center">
+				<div className="flex flex-col gap-2">
+					<input ref={emailInput} type="email" autoFocus placeholder="Email" onChange={handleEmailOnChange} className="py-1 px-3 rounded-md font-extralight bg-slate-200" required />
+					<input ref={passwordInput} type="password" placeholder="Password" onChange={handlePasswordOnChange} className="py-1 px-3 rounded-md font-extralight bg-slate-200" required />
+					<p className="text-xs inline-flex pl-1">
+						Don't have an account?&nbsp;
+						<NavLink to="/register" className="inline-flex items-center font-bold text-blue-600 dark:text-blue-500 hover:underline">
+							Register
+						</NavLink>
+					</p>
+				</div>
+				<MButton title="Submit" type="submit" />
+			</form>
+		</div>
+	);
 };
 
 export default LoginForm;

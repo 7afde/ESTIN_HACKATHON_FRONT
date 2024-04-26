@@ -2,6 +2,8 @@ import { BellFilled, MailOutlined } from "@ant-design/icons";
 import { Badge, Drawer, Image, List, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getComments, getOrders } from "../../API";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { Link, useNavigate } from 'react-router-dom'
 
 function AppHeader() {
   const [comments, setComments] = useState([]);
@@ -19,19 +21,15 @@ function AppHeader() {
   }, []);
 
   return (
-    <div className="AppHeader">
-      <Image
-        width={40}
-        src=""></Image>
+    <div className="AppHeader py-8">
+      <Link to={"/profile"} className="flex items-center gap-1">
+        <Avatar>
+          <AvatarImage src={`../../assets/react.svg`} />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+        My Profile
+      </Link>
       <Space>
-        <Badge count={comments.length} dot>
-          <MailOutlined
-            style={{ fontSize: 24 }}
-            onClick={() => {
-              setCommentsOpen(true);
-            }}
-          />
-        </Badge>
         <Badge count={orders.length}>
           <BellFilled
             style={{ fontSize: 24 }}

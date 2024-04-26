@@ -1,7 +1,7 @@
 import { Avatar, Rate, Space, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getInventory } from "../../API";
-
+import styles from '../Dashboard/index.module.css' 
 function Inventory() {
   const [loading, setLoading] = useState(false);
   const [dataSource, setDataSource] = useState([]);
@@ -16,8 +16,9 @@ function Inventory() {
 
   return (
     <Space size={20} direction="vertical">
-      <Typography.Title level={4}>Inventory</Typography.Title>
+      <Typography.Title level={4} className="pt-10 pl-20">Inventory</Typography.Title>
       <Table
+        className={styles.center}
         loading={loading}
         columns={[
           {

@@ -19,6 +19,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import styles from './index.module.css'
 
 ChartJS.register(
   CategoryScale,
@@ -50,8 +51,8 @@ function Dashboard() {
 
   return (
     <Space size={20} direction="vertical">
-      <Typography.Title level={4}>Dashboard</Typography.Title>
-      <Space direction="horizontal">
+      <Typography.Title level={4} className="pt-10 pl-10 text-xl">Dashboard</Typography.Title>
+      <Space direction="horizontal" className={styles.center}>
         <DashboardCard
           icon={
             <RestOutlined
@@ -61,6 +62,8 @@ function Dashboard() {
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
+                paddingLeft: 10,
+                paddingRight: 10,
               }}
             />
           }
@@ -76,6 +79,8 @@ function Dashboard() {
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
+                paddingLeft: 10,
+                paddingRight: 10,
               }}
             />
           }
@@ -91,6 +96,8 @@ function Dashboard() {
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
+                paddingLeft: 10,
+                paddingRight: 10,
               }}
             />
           }
@@ -98,7 +105,7 @@ function Dashboard() {
           value={revenue}
         />
       </Space>
-      <Space>
+      <Space className={styles.center}>
         <Map />
       </Space>
     </Space>

@@ -46,86 +46,27 @@ const Registerform = () => {
   //     setIsLoading(false);
   //     setError(error.response.data.message);
   //   }
-  };
+  // };
   return (
-    <form className="flex flex-col space-y-4 py-4 w-full  items-center justify-center bg-gradient-to-b from-black to-zinc-700 text-white">
-      <h1 className="sm:text-3xl text-lg font-bold ">Register </h1>
-      {err && (
-        <div className=" bg-red-500 py-3 px-2 rounded-sm w-full text-white text-center">
-          {err}
-        </div>
-      )}
-      {data && (
-        <div className=" bg-green-500 py-3 px-2 rounded-sm w-full text-white text-center">
-          {data}
-        </div>
-      )}
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="first_name">First Name</Label>
-        <Input
-          id="first_name"
-          type="text"
-          placeholder="ex: Ryan"
-          value={registerData.first_name}
-          onChange={handleRegInputChange}
-          className="text-black"
-        />
-      </div>
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="last_name">Last Name</Label>
-        <Input
-          id="last_name"
-          type="text"
-          placeholder="ex: Gosling"
-          value={registerData.last_name}
-          onChange={handleRegInputChange}
-          className="text-black"
-        />
-      </div>
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="phone">Phone Number</Label>
-        <Input
-          id="phone"
-          type="text"
-          placeholder="ex: 0700000000"
-          value={registerData.phone}
-          onChange={handleRegInputChange}
-          className="text-black"
-        />
-      </div>
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          value={registerData.email}
-          onChange={handleRegInputChange}
-          placeholder="ex: ryangosling@gmail.com"
-          className="text-black"
-        />
-      </div>
-      <div className="flex flex-col px-2 sm:w-2/4 w-full">
-        <Label htmlFor="password">Password</Label>
-        <Input
-          className="text-black"
-          id="password"
-          type="password"
-          placeholder="ex: password1234"
-          value={registerData.password}
-          onChange={handleRegInputChange}
-        />
-      </div>
-      {isLoading === true ? (
-        <RiseLoader color="#ffffff" size={10} />
-      ) : (
-        <Button
-          type="submit"
-          onClick={handleRegisterSubmit}
-          className="bg-zinc-500 text-white py-2 px-4 rounded-md hover:bg-zinc-700 transition duration-300 mb-5">
-          Register
-        </Button>
-      )}
-    </form>
-  );
-};
+		<div>
+			<h1 className="text-4xl mb-5">Register</h1>
+			<form action="" onSubmit={handleOnSubmit} className="flex flex-col gap-6 items-center">
+				<div className="flex flex-col gap-2">
+					<input ref={firstNameInput} type="text" placeholder="First Name" onChange={handleFirstNameOnChange} className="py-1 px-3 rounded-md font-extralight bg-slate-200" autoFocus required />
+					<input ref={lastNameInput} type="text" placeholder="Last Name" onChange={handleLastNameOnChange} className="py-1 px-3 rounded-md font-extralight bg-slate-200" required />
+					<input ref={emailInput} type="email" placeholder="Email" onChange={handleEmailOnChange} className="py-1 px-3 rounded-md font-extralight bg-slate-200" required />
+					<input ref={passwordInput} type="password" placeholder="Password" onChange={handlePasswordOnChange} className="py-1 px-3 rounded-md font-extralight bg-slate-200" required />
+					<p className="text-xs inline-flex pl-1">
+						Already have an account?&nbsp;
+						<NavLink to="/login" className="inline-flex items-center font-bold text-blue-600 dark:text-blue-500 hover:underline">
+							Login
+						</NavLink>
+					</p>
+				</div>
+				<MButton title="Submit" type="submit" />
+			</form>
+		</div>
+	);
+}
 
 export default Registerform;
