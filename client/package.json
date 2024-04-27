@@ -23,6 +23,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@tomtom-international/web-sdk-maps": "^6.25.0",
     "antd": "^5.1.2",
+    "axios": "^1.6.8",
     "chart.js": "^4.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
