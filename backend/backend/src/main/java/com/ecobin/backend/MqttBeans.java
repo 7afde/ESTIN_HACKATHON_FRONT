@@ -70,11 +70,12 @@ public class MqttBeans {
 
                 String topic = message.getHeaders().get(MqttHeaders.RECEIVED_TOPIC).toString();
                 if (topic.equals("myTopic")) {
-                    System.out.println("Alert has been Sent");
+                    System.out.println(utilisateurService.addPoints(message.getPayload()));
                 }
-                System.out.println(message.getPayload());
-                utilisateurService.addPoints(message.getPayload());
-                System.out.println("done!");
+                if (topic.equals("notification")) {
+                    System.out.println(message.getPayload());
+                }
+
             }
 
         };
