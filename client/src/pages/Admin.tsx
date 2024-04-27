@@ -9,7 +9,7 @@ const Admin = () => {
   return (
     <>
       <AppHeader />
-      <div className="SideMenuAndPageContent">
+      <div className="SideMenuAndPageContent flex justify-between h-screen">
         <SideMenu></SideMenu>
         <PageContent></PageContent>
       </div>

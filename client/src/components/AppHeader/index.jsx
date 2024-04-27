@@ -21,7 +21,7 @@ function AppHeader() {
   }, []);
 
   return (
-    <div className="AppHeader py-8">
+    <div className="AppHeader py-4 flex justify-between px-10">
       <Link to={"/profile"} className="flex items-center gap-1">
         <Avatar>
           <AvatarImage src={`../../assets/react.svg`} />

@@ -28,6 +28,7 @@ function MyMap() {
       center={defaultLocation}
       zoom={13}
       style={{ height: "400px" }}
+      className="rounded-lg shadow-2xl w-[1000px] mx-auto"
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

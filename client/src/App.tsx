@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Admin from "./pages/Admin.jsx";
+import Admin from "./pages/Admin.tsx";
 import NfcForm from "./components/custom/NfcForm.js";
 import LoginForm from "./components/custom/LoginForm.tsx";
 import Ranking from "./pages/Ranking.tsx";

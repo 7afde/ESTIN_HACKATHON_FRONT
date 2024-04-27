@@ -49,6 +49,7 @@ function Dashboard() {
       </Typography.Title>
       <Space direction="horizontal" className={styles.center}>
         <DashboardCard
+          color='bg-green-200'
           icon={
             <RestOutlined
               style={{
@@ -66,11 +67,12 @@ function Dashboard() {
           value={orders}
         />
         <DashboardCard
+        color='bg-orange-200'
           icon={
             <RestOutlined
               style={{
                 color: "orange",
-                backgroundColor: "rgba(255, 148, 112, 0.45)",
+                backgroundColor: "rgba(255, 148, 102, 0.45)",
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
@@ -83,6 +85,7 @@ function Dashboard() {
           value={inventory}
         />
         <DashboardCard
+          color='bg-red-200'
           icon={
             <RestOutlined
               style={{
@@ -100,14 +103,14 @@ function Dashboard() {
           value={revenue}
         />
       </Space>
-      <MyMap />
+      <MyMap/>
     </Space>
   );
 }
 
-function DashboardCard({ title, value, icon }) {
+function DashboardCard({ title, value, icon, color }) {
   return (
-    <Card>
+    <Card className={`${color} px-10`}>
       <Space direction="horizontal">
         {icon}
         <Statistic title={title} value={value} />
