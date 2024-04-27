@@ -34,4 +34,7 @@ public class Utilisateur {
     @Column(name = "points")
     private Long points;
 
+    @Column(nullable = false, unique = true)
+    private Integer nfc;
+
 }

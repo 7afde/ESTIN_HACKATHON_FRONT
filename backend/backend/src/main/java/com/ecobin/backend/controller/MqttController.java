@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class MqttController {
 
     @Autowired
@@ -21,6 +21,19 @@ public class MqttController {
 
     @PostMapping("/postTrach")
     public ResponseEntity<?> publish(@RequestBody String mqttMessage) {
+
+        try {
+            JsonObject convertOject = new Gson().fromJson(mqttMessage, JsonObject.class);
+            mqttGateway.sendToMqtt(convertOject.get("message").toString(), convertOject.get("topic").toString());
+            return ResponseEntity.ok("Success");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return ResponseEntity.ok("fail");
+        }
+    }
+
+    @PostMapping("/notification")
+    public ResponseEntity<?> notification(@RequestBody String mqttMessage) {
 
         try {
             JsonObject convertOject = new Gson().fromJson(mqttMessage, JsonObject.class);
