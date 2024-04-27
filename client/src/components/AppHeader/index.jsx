@@ -3,7 +3,7 @@ import { Badge, Drawer, Image, List, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getComments, getOrders } from "../../API";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 
 function AppHeader() {
   const [comments, setComments] = useState([]);
@@ -45,12 +45,14 @@ function AppHeader() {
         onClose={() => {
           setCommentsOpen(false);
         }}
-        maskClosable>
+        maskClosable
+      >
         <List
           dataSource={comments}
           renderItem={(item) => {
             return <List.Item>{item.body}</List.Item>;
-          }}></List>
+          }}
+        ></List>
       </Drawer>
       <Drawer
         title="Notifications"
@@ -58,7 +60,9 @@ function AppHeader() {
         onClose={() => {
           setNotificationsOpen(false);
         }}
-        maskClosable>
+        maskClosable
+      >
+        /* list of notifications */
         <List
           dataSource={orders}
           renderItem={(item) => {
@@ -68,7 +72,8 @@ function AppHeader() {
                 ordered!
               </List.Item>
             );
-          }}></List>
+          }}
+        ></List>
       </Drawer>
     </div>
   );

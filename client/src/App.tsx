@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/custom/Navbar";
 import Admin from "./pages/Admin.jsx";
-
+import NfcForm from "./components/custom/NfcForm.js";
 // export const appContext = createContext({
 //   isLogged: false,
 //   setIsLogged: (isLogged: boolean) => {},
@@ -30,9 +30,12 @@ function App() {
   // });
 
   return (
-    <>
-      <Admin />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/nfcform" element={<NfcForm />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
