@@ -3,12 +3,12 @@ import {
   ShoppingCartOutlined,
   ShoppingOutlined,
   UserOutlined,
-  RestOutlined
+  RestOutlined,
 } from "@ant-design/icons";
 import { Card, Space, Statistic, Table, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { getCustomers, getInventory, getOrders, getRevenue } from "../../API";
-import Map from '../../components/custom/Map'
+import Map from "../../components/custom/Map";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -19,16 +19,9 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import styles from './index.module.css'
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+import styles from "./index.module.css";
+import MyMap from "../../components/custom/MyMap";
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
 
 function Dashboard() {
   const [orders, setOrders] = useState(0);
@@ -51,7 +44,9 @@ function Dashboard() {
 
   return (
     <Space size={20} direction="vertical">
-      <Typography.Title level={4} className="pt-10 pl-10 text-xl">Dashboard</Typography.Title>
+      <Typography.Title level={4} className="pt-10 pl-10 text-xl">
+        Dashboard
+      </Typography.Title>
       <Space direction="horizontal" className={styles.center}>
         <DashboardCard
           icon={
@@ -105,9 +100,7 @@ function Dashboard() {
           value={revenue}
         />
       </Space>
-      <Space className={styles.center}>
-        <Map />
-      </Space>
+      <MyMap />
     </Space>
   );
 }
@@ -122,6 +115,5 @@ function DashboardCard({ title, value, icon }) {
     </Card>
   );
 }
-
 
 export default Dashboard;

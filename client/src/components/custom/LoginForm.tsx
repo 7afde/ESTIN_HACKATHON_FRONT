@@ -1,47 +1,36 @@
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { MButton } from "./Buttons";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission here
-    console.log(`Email: ${email}, Password: ${password}`);
-  };
-
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        maxWidth: "300px",
-        margin: "0 auto",
-      }}
-    >
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
-          Email:
+    <div>
+      <h1 className="text-4xl mb-5 text-center py-10">Login</h1>
+      <form className="flex flex-col gap-6 items-center">
+        <div className="flex flex-col gap-2">
           <input
             type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            autoFocus
+            placeholder="Email"
+            className="py-1 px-3 rounded-md font-extralight bg-slate-200"
             required
           />
-        </label>
-        <label htmlFor="password">
-          Password:
           <input
             type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="py-1 px-3 rounded-md font-extralight bg-slate-200"
             required
           />
-        </label>
-        <button type="submit">Login</button>
+          <p className="text-xs inline-flex pl-1">
+            Don't have an account?&nbsp;
+            <NavLink
+              to="/register"
+              className="inline-flex items-center font-bold text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              Register
+            </NavLink>
+          </p>
+        </div>
+        <MButton title="Submit" type="submit" />
       </form>
     </div>
   );
